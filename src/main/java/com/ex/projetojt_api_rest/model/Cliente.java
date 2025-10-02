@@ -13,7 +13,7 @@ import lombok.Setter;
 @Setter
 public class Cliente {
     @Id
-    @Column(name = "id_usuario")
+    @Column(name = "id")
     private int id;
     @Column(name = "nome")
     private String nome;
