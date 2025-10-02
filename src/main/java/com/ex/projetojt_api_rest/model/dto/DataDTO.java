@@ -1,8 +1,9 @@
-package com.ex.projetojt_api_rest.model;
+package com.ex.projetojt_api_rest.model.dto;
 
 import java.time.LocalDate;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Getter
 @Setter
@@ -13,5 +14,6 @@ public class DataDTO {
     private String nomeProduto;
     private String nomeCliente;
     private double valorUnit;
-    private LocalDate data_venda;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDate dataVenda;
 }

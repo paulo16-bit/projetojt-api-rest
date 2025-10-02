@@ -1,7 +1,8 @@
 package com.ex.projetojt_api_rest.controller;
 
-import com.ex.projetojt_api_rest.model.DataDTO;
+import com.ex.projetojt_api_rest.model.dto.DataDTO;
 import com.ex.projetojt_api_rest.model.Venda;
+import com.ex.projetojt_api_rest.model.dto.VendaDTO;
 import com.ex.projetojt_api_rest.model.repository.VendaRepository;
 import com.ex.projetojt_api_rest.service.ClienteService;
 import com.ex.projetojt_api_rest.service.ProdutoService;
@@ -14,8 +15,6 @@ import java.util.List;
 
 @RestController
 public class AppController {
-    @Autowired
-    VendaRepository vendaRepository;
     private final VendaService vendaService;
     private final ClienteService clienteService;
     private final ProdutoService produtoService;
@@ -26,9 +25,10 @@ public class AppController {
         this.clienteService = clienteService;
         this.produtoService = produtoService;
     }
+
     @GetMapping("/vendas")
-    public List<Venda> getVendas() {
-        return vendaRepository.findAll();
+    public ResponseEntity<List<VendaDTO>> getVendas() {
+        return ResponseEntity.ok(vendaService.getVendas());
     }
 
     @PostMapping("/vendas")

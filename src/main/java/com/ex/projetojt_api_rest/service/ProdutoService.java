@@ -1,6 +1,6 @@
 package com.ex.projetojt_api_rest.service;
 
-import com.ex.projetojt_api_rest.model.DataDTO;
+import com.ex.projetojt_api_rest.model.dto.DataDTO;
 import com.ex.projetojt_api_rest.model.Produto;
 import com.ex.projetojt_api_rest.model.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;

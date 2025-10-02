@@ -1,9 +1,11 @@
 package com.ex.projetojt_api_rest.service;
 
+import com.ex.projetojt_api_rest.mapper.VendaMapper;
 import com.ex.projetojt_api_rest.model.Cliente;
 import com.ex.projetojt_api_rest.model.Produto;
 import com.ex.projetojt_api_rest.model.Venda;
-import com.ex.projetojt_api_rest.model.DataDTO;
+import com.ex.projetojt_api_rest.model.dto.DataDTO;
+import com.ex.projetojt_api_rest.model.dto.VendaDTO;
 import com.ex.projetojt_api_rest.model.repository.ClienteRepository;
 import com.ex.projetojt_api_rest.model.repository.ProdutoRepository;
 import com.ex.projetojt_api_rest.model.repository.VendaRepository;
@@ -23,6 +25,8 @@ public class VendaService {
     private final ClienteRepository clienteRepository;
     @Autowired
     private final ProdutoRepository produtoRepository;
+    @Autowired
+    private final VendaMapper vendaMapper;
 
     public void salvarVenda(List<DataDTO> dados) {
 
@@ -33,8 +37,12 @@ public class VendaService {
             Produto produto = produtoRepository.findById(dataDTO.getIdProduto());
             venda.setProduto(produto);
             venda.setQuantidade(dataDTO.getQtdVendida());
-            venda.setDataVenda(dataDTO.getData_venda());
+            venda.setDataVenda(dataDTO.getDataVenda());
             vendaRepository.save(venda);
         }
+    }
+
+    public List<VendaDTO> getVendas(){
+        return vendaRepository.findAll().stream().map(vendaMapper::toDTO).toList();
     }
 }
