@@ -1,6 +1,6 @@
 package com.ex.projetojt_api_rest.service;
 
-import com.ex.projetojt_api_rest.model.DataDTO;
+import com.ex.projetojt_api_rest.model.dto.DataDTO;
 import com.ex.projetojt_api_rest.model.Produto;
 import com.ex.projetojt_api_rest.model.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +19,9 @@ public class ProdutoService {
     public void salvarProduto(List<DataDTO> dados) {
         for (DataDTO dataDTO : dados) {
             Produto produto = new Produto();
-            produto.setId(dataDTO.getIdProduto());
-            produto.setNome(dataDTO.getNomeProduto());
-            produto.setValorUnitario(dataDTO.getValorUnit());
+            produto.setId(dataDTO.idProduto());
+            produto.setNome(dataDTO.nomeProduto());
+            produto.setValorUnitario(dataDTO.valorUnit());
             produtoRepository.save(produto);
         }
     }

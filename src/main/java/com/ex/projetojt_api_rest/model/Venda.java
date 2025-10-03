@@ -15,7 +15,7 @@ public class Venda {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private String id;
 
     @ManyToOne
     @JoinColumn(name = "cliente_id", nullable = false)

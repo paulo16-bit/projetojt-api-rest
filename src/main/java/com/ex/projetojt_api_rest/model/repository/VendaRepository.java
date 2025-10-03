@@ -4,6 +4,6 @@ import org.springframework.stereotype.Repository;
 import com.ex.projetojt_api_rest.model.Venda;
 
 @Repository
-public interface VendaRepository extends JpaRepository<Venda, Integer> {
+public interface VendaRepository extends JpaRepository<Venda, String> {
     
 }

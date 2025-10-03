@@ -14,7 +14,7 @@ import lombok.Setter;
 public class Cliente {
     @Id
     @Column(name = "id")
-    private int id;
+    private String id;
     @Column(name = "nome")
     private String nome;
 }

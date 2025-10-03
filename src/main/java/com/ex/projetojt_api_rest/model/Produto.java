@@ -14,7 +14,7 @@ import lombok.Getter;
 public class Produto {
     @Id
     @Column(name = "id")
-    private int id;
+    private String id;
     @Column(name = "nome")
     private String nome;
     @Column(name = "valor_unitario")
