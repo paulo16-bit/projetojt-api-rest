@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 public class VendaMapper {
 
     public VendaDTO toDTO(Venda venda){
-        return new VendaDTO(String.valueOf(venda.getProduto().getId()),String.valueOf(venda.getCliente().getId()),
-                venda.getProduto().getNome(), venda.getCliente().getNome(), venda.getQuantidade(), venda.getProduto().getValorUnitario(),
-                venda.getDataVenda());
+        return new VendaDTO(venda);
     }
 }

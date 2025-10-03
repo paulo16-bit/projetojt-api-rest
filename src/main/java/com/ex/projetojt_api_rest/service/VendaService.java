@@ -32,12 +32,14 @@ public class VendaService {
 
         for (DataDTO dataDTO : dados) {
             Venda venda = new Venda();
-            Cliente cliente = clienteRepository.findById(dataDTO.getIdCliente());
+            Cliente cliente = clienteRepository.findById(dataDTO.idCliente())
+                    .orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
             venda.setCliente(cliente);
-            Produto produto = produtoRepository.findById(dataDTO.getIdProduto());
+            Produto produto = produtoRepository.findById(dataDTO.idProduto())
+                    .orElseThrow(() -> new RuntimeException("Produto não encontrado"));
             venda.setProduto(produto);
-            venda.setQuantidade(dataDTO.getQtdVendida());
-            venda.setDataVenda(dataDTO.getDataVenda());
+            venda.setQuantidade(dataDTO.qtdVendida());
+            venda.setDataVenda(dataDTO.dataVenda());
             vendaRepository.save(venda);
         }
     }

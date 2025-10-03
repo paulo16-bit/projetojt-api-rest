@@ -3,6 +3,8 @@ package com.ex.projetojt_api_rest.model.repository;
 import com.ex.projetojt_api_rest.model.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
-    Cliente findById(int id);
+import java.util.Optional;
+
+public interface ClienteRepository extends JpaRepository<Cliente, String> {
+    Optional<Cliente> findById(String id);
 }

@@ -19,8 +19,8 @@ public class ClienteService {
     public void salvarCliente(List<DataDTO> dados) {
         for (DataDTO dataDTO : dados) {
             Cliente cliente = new Cliente();
-            cliente.setId(dataDTO.getIdCliente());
-            cliente.setNome(dataDTO.getNomeCliente());
+            cliente.setId(dataDTO.idCliente());
+            cliente.setNome(dataDTO.nomeCliente());
             clienteRepository.save(cliente);
         }
     }
