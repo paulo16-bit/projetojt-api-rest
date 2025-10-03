@@ -10,7 +10,7 @@ RUN mvn clean package -DskipTests
 
 FROM eclipse-temurin:23-jre-alpine AS app
 
-COPY --from=build /app/target/manager-0.0.1-SNAPSHOT.jar /app/app.jar
+COPY --from=build /app/target/projetojt-api-rest-0.0.1-SNAPSHOT.jar /app/app.jar
 
 WORKDIR /app
 
